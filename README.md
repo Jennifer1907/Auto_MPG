@@ -69,7 +69,7 @@ README.md
 We compute:
 
 \[
-R^2 = 1 - rac{SS_{	ext{res}}}{SS_{	ext{tot}}}
+R^2 = 1 - \frac{SS_{res}}{SS_{tot}}
 \]
 
 Where:
@@ -222,26 +222,24 @@ Adam uses *adaptive learning rates* and *momentum*:
 
 Momentum estimate:
 \[
-m_t = eta_1 m_{t-1} + (1 - eta_1) g_t
+m_t = \beta_1 m_{t-1} + (1 - \beta_1) g_t
 \]
 
 Variance estimate:
 \[
-v_t = eta_2 v_{t-1} + (1 - eta_2) g_t^2
+v_t = \beta_2 v_{t-1} + (1 - \beta_2) g_t^2
 \]
 
 Bias correction:
 \[
-\hat{m}_t = rac{m_t}{1 - eta_1^t},
+\hat{m}_t = \frac{m_t}{1 - \beta_1^t},
 \quad
-\hat{v}_t = rac{v_t}{1 - eta_2^t}
+\hat{v}_t = \frac{v_t}{1 - \beta_2^t}
 \]
 
 Update rule:
 \[
-	heta_t = 
-	heta_{t-1} 
--  lpha rac{\hat{m}_t}{\sqrt{\hat{v}_t} + \epsilon}
+\theta_t = \theta_{t-1} - \alpha \frac{\hat{m}_t}{\sqrt{\hat{v}_t} + \epsilon}
 \]
 
 ### ✔ Intuition:
